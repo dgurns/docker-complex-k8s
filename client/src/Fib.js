@@ -22,4 +22,26 @@ class Fib extends Component {
     const seenIndexes = await axios.get('/api/values/all');
     this.setState({ seenIndexes: seenIndexes.data });
   }
+
+  renderSeenIndexes() {
+    return this.state.seenIndexes.map(({ number }) => number).join(', ');
+  }
+
+  render() {
+    return (
+      <div>
+        <form>
+          <label>Enter your index:</label>
+          <input />
+          <button>Submit</button>
+        </form>
+
+        <h3>Indexes I Have Seen:</h3>
+        {this.renderSeenIndexes()}
+
+        <h3>Calculated Values:</h3>
+        
+      </div>
+    );
+  }
 }
