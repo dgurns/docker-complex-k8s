@@ -12,11 +12,11 @@ services:
   redis:
     image: 'redis:latest'
   api:
+    depends_on:
+      - postgres
     build:
       dockerfile: Dockerfile.dev
       context: ./server
-    depends_on:
-      - postgres
     volumes:
       - /app/node_modules
       - ./server:/app

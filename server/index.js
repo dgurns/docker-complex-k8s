@@ -44,7 +44,7 @@ app.get('/values/all', async (req, res) => {
 });
 
 app.get('/values/current', async (req, res) => {
-  const redisClientHgetall = util.promisify(redisClient.hgetall);
+  const redisClientHgetall = util.promisify(redisClient.hgetall).bind(redisClient);
   const values = await redisClientHgetall('values');
   res.send(values);
 });
