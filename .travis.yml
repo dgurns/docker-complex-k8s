@@ -21,16 +21,16 @@ after_success:
   - docker push dgurney/docker-complex-server
   - docker push dgurney/docker-complex-worker
 
-deploy:
-  provider: elasticbeanstalk
-  region: us-east-1
-  app: docker-complex
-  env: DockerComplex-env
-  bucket_name: elasticbeanstalk-us-east-1-727441280422
-  bucket_path: docker-complex
-  on:
-    branch: master
-  access_key_id:
-    secure: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: $AWS_SECRET_KEY
+# deploy:
+#   provider: elasticbeanstalk
+#   region: us-east-1
+#   app: docker-complex
+#   env: DockerComplex-env
+#   bucket_name: elasticbeanstalk-us-east-1-727441280422
+#   bucket_path: docker-complex
+#   on:
+#     branch: master
+#   access_key_id:
+#     secure: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secure: $AWS_SECRET_KEY
