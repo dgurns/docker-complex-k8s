@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: opensourcetour-com-tls
+spec:
+  secretName: opensourcetour-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: opensourcetour.com
+  dnsNames:
+    - opensourcetour.com
+    - www.opensourcetour.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - opensourcetour.com
+          - www.opensourcetour.com
